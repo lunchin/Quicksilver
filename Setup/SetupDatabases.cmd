@@ -1,9 +1,9 @@
 :: Setup EPiServer CMS and Commerce databases
 @echo off
 
-set cms_db=Quicksilver.Cms
-set commerce_db=Quicksilver.Commerce
-set user=Quicksilver
+set cms_db=Quicksilver.Cms.Find
+set commerce_db=Quicksilver.Commerce.Find
+set user=QuicksilverFind
 set password=Episerver15
 
 :: Determine package folders

@@ -91,6 +91,18 @@
             </div>
         </div>
     </div>
+    
+    <div class="col-sm-9">
+        <div class="row">
+            <h3>People that bought this item also bought</h3>
+            @foreach (var productModel in Model.Assosiations)
+            {
+                Html.RenderPartial("_ProductTile", productModel);
+            }
+        </div>
+    </div>
+
+
 
 </div>
 

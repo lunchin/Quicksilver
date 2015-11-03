@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
+using EPiServer.Commerce.Catalog;
 using EPiServer.Commerce.Catalog.ContentTypes;
 using EPiServer.Commerce.Catalog.Linking;
 using EPiServer.Core;
 using EPiServer.Filters;
+using EPiServer.Find;
+using EPiServer.Find.Api.Facets;
+using EPiServer.Find.Commerce;
+using EPiServer.Find.Framework;
+using EPiServer.Reference.Commerce.Site.Features.Find;
 using EPiServer.Reference.Commerce.Site.Features.Product.Models;
 using EPiServer.Reference.Commerce.Site.Features.Shared.Extensions;
 using EPiServer.Reference.Commerce.Site.Features.Shared.Services;
@@ -17,6 +23,7 @@ using Mediachase.Commerce;
 using Mediachase.Commerce.Catalog;
 using Mediachase.Commerce.Pricing;
 using EPiServer.Reference.Commerce.Site.Features.Market.Services;
+using BrilliantCut.Core.Extensions;
 
 namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
 {
@@ -33,6 +40,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
         private readonly FilterPublished _filterPublished;
         private readonly CultureInfo _preferredCulture;
         private readonly bool _isInEditMode;
+        private readonly AssetUrlResolver _assetUrlResolver;
 
         public ProductController(
             IPromotionService promotionService,
@@ -45,7 +53,8 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
             UrlResolver urlResolver,
             FilterPublished filterPublished,
             Func<CultureInfo> preferredCulture,
-            Func<bool> isInEditMode)
+            Func<bool> isInEditMode, 
+            AssetUrlResolver assetUrlResolver)
         {
             _promotionService = promotionService;
             _contentLoader = contentLoader;
@@ -58,6 +67,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
             _preferredCulture = preferredCulture();
             _isInEditMode = isInEditMode();
             _filterPublished = filterPublished;
+            _assetUrlResolver = assetUrlResolver;
         }
 
         [HttpGet]
@@ -111,7 +121,8 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
                     .ToList(),
                 Color = variation.Color,
                 Size = variation.Size,
-                Images = variation.GetAssets<IContentImage>(_contentLoader, _urlResolver)
+                Images = variation.GetAssets<IContentImage>(_contentLoader, _urlResolver),
+                Assosiations = GetAssociations(currentContent.ContentLink)
             };
 
             if (quickview)
@@ -120,6 +131,36 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
             }
 
             return Request.IsAjaxRequest() ? PartialView(viewModel) : (ActionResult)View(viewModel);
+        }
+
+        private IEnumerable<ProductViewModel> GetAssociations(ContentReference currentContentLink)
+        {
+            var contentLinkStrinksCollection = SearchClient.Instance.Search<ContentLinkOrders>()
+                .Filter(x => x.ContentLinkStrings.Match(currentContentLink.ToString()))
+                .Select(x => x.ContentLinkStrings)
+                .GetResult();
+
+            var hashSet = new HashSet<string>();
+            foreach (var contentLinkStrinks in contentLinkStrinksCollection)
+            {
+                foreach (var contentLinkStrink in contentLinkStrinks)
+                {
+                    if (contentLinkStrink != currentContentLink.ToString())
+                    {
+                        hashSet.Add(contentLinkStrink);
+                    }
+                }
+            }
+
+            var associationLinks = hashSet.Select(x => new ContentReference(x));
+            var associations = _contentLoader.GetItems(associationLinks, CultureInfo.InvariantCulture).OfType<ProductContent>();
+            return associations.Select(x => new ProductViewModel()
+            {
+                DisplayName = x.Name,
+                Code = x.Code,
+                ImageUrl = _urlResolver.GetUrl(_assetUrlResolver.GetAssetUrl<ImageData>(x)),
+                ExtendedPrice = new Money(0, Currency.USD)
+            });
         }
 
         [HttpPost]

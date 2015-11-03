@@ -93,23 +93,32 @@
             facets.push(selectedFacet);
         });
         var url = Search.getUrl(facets);
-        Search.updatePage(url, form.serialize(), function () {
+        Search.updatePage(url, form.serialize(), function() {
             history.pushState({ url: url }, "", url); //put the new url to browser history
-        })
+        });
     },
     getUrl: function (facets) {
-        var urlParams = Search.getUrlParams();
-        urlParams.facets = facets ? facets.join(',') : null;
-        var sort = $('.jsSearchSort')[0].value;
-        urlParams.sort = sort;
-        var url = "?";
-        for (var key in urlParams) {
-            var value = urlParams[key];
-            if (value) {
-                url += key + '=' + value + '&';
+        var url = window.location.pathname;
+        facets.forEach(function (facet) {
+            var facetSplit = facet.split("%2F");
+            var indexOfFacetName = url.indexOf(facetSplit[0].replace("%20", "_"));
+            if (indexOfFacetName > -1) {
+                var facetNameLenght = indexOfFacetName + facetSplit[0].length;
+                if (url.substr(facetNameLenght).indexOf(facetSplit[1].replace("%20", "_")) < 0) {
+                    url = url.substr(0, facetNameLenght) + "/" + facetSplit[1].replace("%20", "_") + url.substr(facetNameLenght);
+                }
+                //url = url.substr(0, indexOfFacetName + facetNameLenght) + facetSplit[1] + url.substr(indexOfFacetName + facetNameLenght) + "/";
+            } else {
+                url = url + facetSplit[0].replace("%20", "_") + "/" + facetSplit[1].replace("%20", "_") + "/";
             }
-        }
-        return url.slice(0, -1); //remove last char
+
+            //if (url.indexOf(facet) < 0) {
+            //    url = url + facet.replace("%2F", "/") + "/";
+            //}
+        });
+
+        return url;
+        //return facets ? window.location.pathname + facets.join('/') : window.location.pathname;
     },
     getUrlParams: function () {
         var match,
@@ -124,13 +133,14 @@
     },
     removeAll: function () {
         Search.lastPage = false;
+       
         $('.jsSearchFacet:input:checked').each(function () { $(this).attr('checked', false); });
         var form = $(document).find('.jsSearchForm');
         $('.jsSearchPage').val(1);
-        var url = Search.getUrl();
+        var url = $('.mainNodeUrl')[0].href; //Search.getUrl();
         Search.updatePage(url, form.serialize(), function () {
             history.pushState({ url: url }, "", url); //put the new url to browser history
-        })
+        });
     },
     updatePage: function (url, data, onSuccess) {
         $.ajax({

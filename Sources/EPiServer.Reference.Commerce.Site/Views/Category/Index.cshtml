@@ -10,7 +10,20 @@
             <div class="col-sm-9">
                 @Html.Partial("_ProductList", Model.ProductViewModels)
             </div>
+            
+            <div class="col-sm-9">
+                <div class="row">
+                    <h3>Associations</h3>
+                    @foreach (var productModel in Model.Associations)
+                    {
+                        Html.RenderPartial("_ProductTile", productModel);
+                    }
+                </div>
+            </div>
+            
             <input class="jsSearchPage" hidden id="FormModel_Page" name="FormModel.Page" type="text" value="@(Model.FormModel.Page + 1)" />
         }
+        
+        @Html.ContentLink(Model.CurrentContent.ContentLink, new { }, new { @style = "visible: false", @class = "mainNodeUrl" })
     </div>
 </div>

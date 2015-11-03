@@ -9,6 +9,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Search.Models
     [ModelBinder(typeof(FilterOptionFormModelBinder))]
     public class FilterOptionFormModel
     {
+        public Dictionary<string, List<object>> RoutedFacets { get; set; }
         public List<FacetGroupOption> FacetGroups { get; set; }
         public IEnumerable<SelectListItem> Sorting { get; set; }
         public string Sort { get; set; }

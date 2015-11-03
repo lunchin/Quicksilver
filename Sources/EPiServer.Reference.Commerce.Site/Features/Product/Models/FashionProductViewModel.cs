@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using EPiServer.Core;
 using Mediachase.Commerce;
 using Mediachase.Commerce.Pricing;
 
@@ -16,5 +17,6 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Models
         public string Color { get; set; }
         public string Size { get; set; }
         public IList<string> Images { get; set; }
+        public IEnumerable<ProductViewModel> Assosiations { get; set; } 
     }
 }

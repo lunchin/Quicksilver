@@ -1,4 +1,6 @@
-﻿using EPiServer.Core;
+﻿using EPiServer.Commerce.Catalog.Linking;
+using EPiServer.Core;
+using EPiServer.Find.Framework;
 using EPiServer.Framework.Localization;
 using EPiServer.Reference.Commerce.Shared.Services;
 using EPiServer.Reference.Commerce.Site.Features.AddressBook.Services;
@@ -6,6 +8,7 @@ using EPiServer.Reference.Commerce.Site.Features.Cart.Services;
 using EPiServer.Reference.Commerce.Site.Features.Checkout.Models;
 using EPiServer.Reference.Commerce.Site.Features.Checkout.Pages;
 using EPiServer.Reference.Commerce.Site.Features.Checkout.Services;
+using EPiServer.Reference.Commerce.Site.Features.Find;
 using EPiServer.Reference.Commerce.Site.Features.Market.Services;
 using EPiServer.Reference.Commerce.Site.Features.Payment.Exceptions;
 using EPiServer.Reference.Commerce.Site.Features.Payment.Models;
@@ -18,6 +21,7 @@ using EPiServer.Reference.Commerce.Site.Infrastructure.Facades;
 using EPiServer.Web.Mvc;
 using EPiServer.Web.Routing;
 using Mediachase.BusinessFoundation.Data.Business;
+using Mediachase.Commerce.Catalog;
 using Mediachase.Commerce.Customers;
 using Mediachase.Commerce.Orders;
 using Mediachase.Commerce.Orders.Managers;
@@ -29,6 +33,7 @@ using System.Collections.Specialized;
 using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
+using EPiServer.Commerce.Catalog.ContentTypes;
 
 namespace EPiServer.Reference.Commerce.Site.Features.Checkout.Controllers
 {
@@ -49,6 +54,8 @@ namespace EPiServer.Reference.Commerce.Site.Features.Checkout.Controllers
         private const string _shippingAddressPrefix = "ShippingAddresses[{0}]";
         private readonly ControllerExceptionHandler _controllerExceptionHandler;
         private readonly CustomerContextFacade _customerContext;
+        private readonly ReferenceConverter _referenceConverter;
+        private readonly ILinksRepository _linksRepository;
 
         public CheckoutController(
                     ICartService cartService,
@@ -63,7 +70,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Checkout.Controllers
                     CurrencyService currencyService,
                     IAddressBookService addressBookService,
                     ControllerExceptionHandler controllerExceptionHandler,
-                    CustomerContextFacade customerContextFacade)
+                    CustomerContextFacade customerContextFacade, ReferenceConverter referenceConverter, ILinksRepository linksRepository)
         {
             _cartService = cartService;
             _contentRepository = contentRepository;
@@ -78,6 +85,8 @@ namespace EPiServer.Reference.Commerce.Site.Features.Checkout.Controllers
             _addressBookService = addressBookService;
             _controllerExceptionHandler = controllerExceptionHandler;
             _customerContext = customerContextFacade;
+            _referenceConverter = referenceConverter;
+            _linksRepository = linksRepository;
         }
 
         [HttpGet]
@@ -541,6 +550,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Checkout.Controllers
             _cartService.RunWorkflow(OrderGroupWorkflowManager.CartCheckOutWorkflowName);
             purchaseOrder = _checkoutService.SaveCartAsPurchaseOrder();
 
+            IndexOrder(currentPage);
             _checkoutService.DeleteCart();
 
             emailAddress = purchaseOrder.OrderAddresses.First().Email;
@@ -566,6 +576,31 @@ namespace EPiServer.Reference.Commerce.Site.Features.Checkout.Controllers
             }
 
             return Redirect(new UrlBuilder(confirmationPage.LinkURL) { QueryCollection = queryCollection }.ToString());
+        }
+
+        private void IndexOrder(CheckoutPage currentPage)
+        {
+            var variationLinks = _cartService.GetCartItems().Select(x => _referenceConverter.GetContentLink(x.Code));
+            var variationContents = _contentLoader.GetItems(variationLinks, currentPage.Language).OfType<VariationContent>();
+
+            var contentLinkStrings = new HashSet<string>();
+            var productVariations = variationContents.Select(x => _linksRepository.GetRelationsByTarget<ProductVariation>(x.ContentLink));
+            foreach (var productVariation in productVariations)
+            {
+                foreach (var variation in productVariation)
+                {
+                    contentLinkStrings.Add(variation.Source.ToString());
+                }
+            }
+
+            var contentLinkOrder = new ContentLinkOrders
+            {
+                Id = _cartService.GetOrderForms().Single().OrderGroupId,
+                ContentLinkStrings = contentLinkStrings,
+                OrderDate = DateTime.Now
+            };
+
+            SearchClient.Instance.Index(contentLinkOrder);
         }
 
         protected override void OnException(ExceptionContext filterContext)

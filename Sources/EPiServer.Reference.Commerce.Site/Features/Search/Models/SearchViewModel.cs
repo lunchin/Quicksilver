@@ -7,6 +7,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Search.Models
 {
     public class SearchViewModel<T> where T : IContent
     {
+        public IEnumerable<ProductViewModel> Associations { get; set; } 
         public IEnumerable<ProductViewModel> ProductViewModels { get; set; }
         public T CurrentContent { get; set; }
         public FilterOptionFormModel FormModel { get; set; }

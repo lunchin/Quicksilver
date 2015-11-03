@@ -1066,7 +1066,8 @@ namespace EPiServer.Reference.Commerce.Site.Tests.Features.Product.Controllers
                 _mockUrlResolver.Object,
                 _filterPublished,
                 () => _preferredCulture,
-                () => _isInEditMode);
+                () => _isInEditMode,
+                null);
 
             controller.ControllerContext = new ControllerContext(_mockHttpContextBase.Object, new RouteData(), controller);
 
@@ -1121,12 +1122,12 @@ namespace EPiServer.Reference.Commerce.Site.Tests.Features.Product.Controllers
 
         private static void SetAvailableColors(FashionProduct product, ItemCollection<string> colors)
         {
-            product.AvailableColors = colors;
+            //product.AvailableColors = colors;
         }
 
         private static void SetAvailableSizes(FashionProduct product, ItemCollection<string> sizes)
         {
-            product.AvailableSizes = sizes;
+            //product.AvailableSizes = sizes;
         }
 
         private static void SetColor(FashionVariant fashionVariant, string color)

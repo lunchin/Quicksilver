@@ -20,5 +20,7 @@
             </div>
             <input class="jsSearchPage" id="FormModel_Page" name="FormModel.Page" type="hidden" value="@(Model.FormModel.Page + 1)" />
         }
+
+        <input class="mainNodeUrl" id="mainNodeUrl" name="mainNodeUrl" type="hidden" value="@Html.ContentLink(Model.CurrentContent.ContentLink)" />
     }
 </div>

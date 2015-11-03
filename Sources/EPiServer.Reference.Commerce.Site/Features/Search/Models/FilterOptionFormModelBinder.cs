@@ -49,6 +49,8 @@ namespace EPiServer.Reference.Commerce.Site.Features.Search.Models
             var sort = controllerContext.HttpContext.Request.QueryString["sort"];
             var facets = controllerContext.HttpContext.Request.QueryString["facets"];
             SetupModel(model, query, sort, facets, content);
+
+            model.RoutedFacets = controllerContext.RouteData.DataTokens["facets"] as Dictionary<string, List<object>>;
             return model;
         }
 

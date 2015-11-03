@@ -46,16 +46,16 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Models
         [Display(Name = "Product Teaser", Order = 5)]
         public virtual XhtmlString ProductTeaser { get; set; }
 
-        [Searchable]
-        [IncludeInDefaultSearch]
-        [BackingType(typeof(PropertyDictionaryMultiple))]
-        [Display(Name = "Available Sizes", Order = 6)]
-        public virtual ItemCollection<string> AvailableSizes { get; set; }
+        //[Searchable]
+        //[IncludeInDefaultSearch]
+        //[BackingType(typeof(PropertyDictionaryMultiple))]
+        //[Display(Name = "Available Sizes", Order = 6)]
+        //public virtual ItemCollection<string> AvailableSizes { get; set; }
 
-        [Searchable]
-        [IncludeInDefaultSearch]
-        [BackingType(typeof(PropertyDictionaryMultiple))]
-        [Display(Name = "Available Colors", Order = 6)]
-        public virtual ItemCollection<string> AvailableColors { get; set; }
+        //[Searchable]
+        //[IncludeInDefaultSearch]
+        //[BackingType(typeof(PropertyDictionaryMultiple))]
+        //[Display(Name = "Available Colors", Order = 6)]
+        //public virtual ItemCollection<string> AvailableColors { get; set; }
     }
 }

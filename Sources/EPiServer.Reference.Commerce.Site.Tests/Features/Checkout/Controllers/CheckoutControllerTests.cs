@@ -64,7 +64,7 @@ namespace EPiServer.Reference.Commerce.Site.Tests.Features.Checkout.Controllers
                 RequestContext = _requestContext.Object
             };
 
-            _subject = new CheckoutController(null, null, null, null, null, null, null, null, null, null,null, _controllerExceptionHandler.Object,null);
+            _subject = new CheckoutController(null, null, null, null, null, null, null, null, null, null,null, _controllerExceptionHandler.Object,null, null, null);
         }
 
         private CheckoutControllerForTest CreateTestController()
@@ -88,7 +88,7 @@ namespace EPiServer.Reference.Commerce.Site.Tests.Features.Checkout.Controllers
         private class CheckoutControllerForTest : CheckoutController
         {
             public CheckoutControllerForTest(ICartService cartService, IContentRepository contentRepository, UrlResolver urlResolver, IMailService mailService, ICheckoutService checkoutService, IContentLoader contentLoader, IPaymentService paymentService, LocalizationService localizationService, Func<string,CartHelper> cartHelper, CurrencyService currencyService, AddressBookService addressBookService, ControllerExceptionHandler controllerExceptionHandler, CustomerContextFacade customerContextFacade)
-                : base(cartService, contentRepository, urlResolver, mailService, checkoutService, contentLoader, paymentService, localizationService, cartHelper, currencyService, addressBookService, controllerExceptionHandler,customerContextFacade)
+                : base(cartService, contentRepository, urlResolver, mailService, checkoutService, contentLoader, paymentService, localizationService, cartHelper, currencyService, addressBookService, controllerExceptionHandler,customerContextFacade, null, null)
             {
             }
 
