@@ -52,7 +52,6 @@ namespace EPiServer.Reference.Commerce.Site.Infrastructure
     {
         public void Initialize(InitializationEngine context)
         {
-            //CatalogRouteHelper.MapDefaultHierarchialRouter(RouteTable.Routes, false);
             var referenceConverter = ServiceLocator.Current.GetInstance<ReferenceConverter>();
             var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
             var commerceRootContent = contentLoader.Get<CatalogContentBase>(referenceConverter.GetRootLink());
@@ -70,9 +69,6 @@ namespace EPiServer.Reference.Commerce.Site.Infrastructure
             
             AreaRegistration.RegisterAllAreas();
 
-            //context.Locate.Advanced.GetInstance<AssetUrlConventions>().DefaultAssetUrl = "";
-
-            //ContentIndexer.Instance.Conventions.ForInstancesOf<JacketProduct>().ShouldIndex(x => false);
 
             SearchClient.Instance.Conventions.ForInstancesOf<FashionProduct>()
                 .IncludeField(x => x.Sizes())
@@ -92,15 +88,6 @@ namespace EPiServer.Reference.Commerce.Site.Infrastructure
             var assetUrlConventions = context.Locate.Advanced.GetInstance<AssetUrlConventions>();
             assetUrlConventions.AddDefaultGroup<JacketProduct>("other");
             assetUrlConventions.AddDefaultGroup<WinterJacketProduct>("default");
-
-                //.RangeFacet<WinterJacketProduct, double>(x => x.Degree,
-                //    (builder, values) => builder
-                //        .And(x => x.Degree.GreaterThan((int)values.Min() - 1))
-                //        .And(x => x.Degree.LessThan((int)values.Max() + 1)))
-
-                //.Termsfacet<WinterJacketProduct>(x => x.Degree, (builder, value) => builder.Or(x => x.Degree.Match(value)))
-                //.Termsfacet<FashionProduct>(x => x.Sizes(), (builder, value) => builder.Or(x => x.Sizes().MatchContained(value)))
-                //.Termsfacet<FashionProduct>(x => x.Colors(), (builder, value) => builder.Or(x => x.Colors().MatchContained(value)))
         }
 
         public void ConfigureContainer(ServiceConfigurationContext context)
