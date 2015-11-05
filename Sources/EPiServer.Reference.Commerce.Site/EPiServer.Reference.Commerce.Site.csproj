@@ -480,6 +480,9 @@
     <Compile Include="Features\Cart\Models\WishListViewModel.cs" />
     <Compile Include="Features\Checkout\Controllers\OrderConfirmationControllerBase.cs" />
     <Compile Include="Features\Checkout\Models\ShippingAddress.cs" />
+    <Compile Include="Features\Discounts\RewardMembersDiscount.cs" />
+    <Compile Include="Features\Discounts\RewardMembersDiscountProcessor.cs" />
+    <Compile Include="Features\Discounts\RewardMembersDiscountResult.cs" />
     <Compile Include="Features\ErrorHandling\Controllers\ErrorHandlingController.cs" />
     <Compile Include="Features\ErrorHandling\Models\ErrorViewModel.cs" />
     <Compile Include="Features\ErrorHandling\Pages\ErrorPage.cs" />
@@ -979,7 +982,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\Campaign\Models\" />
-    <Folder Include="Features\Discounts\" />
     <Folder Include="Features\Login\Models\" />
   </ItemGroup>
   <PropertyGroup>
