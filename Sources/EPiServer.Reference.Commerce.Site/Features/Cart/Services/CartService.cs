@@ -230,11 +230,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Cart.Services
 
         public Money GetSubTotal()
         {
-            decimal amount = CartHelper.Cart.SubTotal + CurrentIOrderGroup.Forms
-                .SelectMany(form => form.Shipments)
-                .SelectMany(shipment => shipment.LineItems)
-                .Sum(lineItem => lineItem.OrderLevelDiscountAmount);
-
+            decimal amount = CartHelper.Cart.SubTotal + CartHelper.Cart.OrderForms.SelectMany(x => x.Discounts.Cast<OrderFormDiscount>()).Sum(x => x.DiscountAmount);
             return ConvertToMoney(amount);
         }
 
@@ -264,11 +260,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Cart.Services
 
         public Money GetOrderDiscountTotal()
         {
-            var amount = CurrentIOrderGroup.Forms
-                .SelectMany(form => form.Shipments)
-                .SelectMany(shipment => shipment.LineItems)
-                .Sum(lineItem => lineItem.OrderLevelDiscountAmount);
-
+            decimal amount = GetOrderForms().SelectMany(x => x.Discounts.Cast<OrderFormDiscount>()).Sum(x => x.DiscountValue);
             return ConvertToMoney(amount);
         }
 
