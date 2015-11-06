@@ -86,7 +86,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Discounts
                 percentageOffTotal = (_monetaryReward.Percentage / 100);
             }
             
-            lineItem.OrderLevelDiscountAmount += Math.Floor((percentageOffTotal * ((lineItem.PlacedPrice * lineItem.Quantity) - (lineItem.LineItemDiscountAmount))) * 100) * 0.01m;
+            lineItem.OrderLevelDiscountAmount = Math.Floor((percentageOffTotal * ((lineItem.PlacedPrice * lineItem.Quantity) - (lineItem.LineItemDiscountAmount))) * 100) * 0.01m;
         }
 
         private decimal GetTotalCost(int lineItemId)
