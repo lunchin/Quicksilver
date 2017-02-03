@@ -435,7 +435,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\AssemblyVersionAuto.cs">
-      <Link>AssemblyVersionAuto.cs</Link>
+      <Link>Views\AssemblyVersionAuto.cs</Link>
     </Compile>
     <Compile Include="Features\AddressBook\ViewModels\AddressCollectionViewModel.cs" />
     <Compile Include="Features\AddressBook\ViewModels\AddressViewModel.cs" />
