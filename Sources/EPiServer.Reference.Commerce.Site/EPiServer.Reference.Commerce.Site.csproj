@@ -389,6 +389,7 @@
   <ItemGroup>
     <Content Include="lang\Quicksilver_SV.xml" />
     <Content Include="lang\Display_en.xml" />
+    <Content Include="License.config" />
     <Content Include="Scripts\jquery-1.11.1.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
