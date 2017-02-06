@@ -18,6 +18,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using EPiServer.Globalization;
+using EPiServer.Reference.Commerce.Site.Features.Recommendations.Extensions;
+using EPiServer.Reference.Commerce.Site.Features.Recommendations.Services;
 
 namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
 {
@@ -34,6 +36,8 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
         private readonly FilterPublished _filterPublished;
         private readonly LanguageResolver _languageResolver;
         private readonly bool _isInEditMode;
+        private readonly IRecommendationService _recommendationService;
+        private readonly ReferenceConverter _referenceConverter;
 
         public ProductController(
             IPromotionService promotionService,
@@ -46,7 +50,9 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
             UrlResolver urlResolver,
             FilterPublished filterPublished,
             LanguageResolver languageResolver,
-            IsInEditModeAccessor isInEditModeAccessor)
+            IsInEditModeAccessor isInEditModeAccessor,
+            IRecommendationService recommendationService,
+            ReferenceConverter referenceConverter)
         {
             _promotionService = promotionService;
             _contentLoader = contentLoader;
@@ -57,6 +63,8 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
             _appContext = appContext;
             _urlResolver = urlResolver;
             _languageResolver = languageResolver;
+            _recommendationService = recommendationService;
+            _referenceConverter = referenceConverter;
             _isInEditMode = isInEditModeAccessor();
             _filterPublished = filterPublished;
         }
@@ -64,6 +72,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult Index(FashionProduct currentContent, string variationCode = "", bool quickview = false)
         {
+            var response = _recommendationService.SendProductTracking(HttpContext, currentContent.Code);
             var variations = GetVariations(currentContent).ToList();
             if (_isInEditMode && !variations.Any())
             {
@@ -122,6 +131,9 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
             {
                 return PartialView("Quickview", viewModel);
             }
+
+            viewModel.AlternativeProducts = response.GetAlternativeProductsRecommendations(_referenceConverter);
+            viewModel.CrossSellProducts = response.GetCrossSellProductsRecommendations(_referenceConverter);
 
             return Request.IsAjaxRequest() ? PartialView(viewModel) : (ActionResult)View(viewModel);
         }

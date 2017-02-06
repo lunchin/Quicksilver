@@ -65,7 +65,15 @@
         }
 
         <div class="quicksilver site-wrapper">
-            @RenderBody()
+            <div class="main-area">
+                @RenderBody()
+            </div>
+
+            <div class="recommendations recommendations-upper">@RenderSection("UpperRecommendations", false)</div>
+            <div class="recommendations recommendations-left">@RenderSection("LeftMarginRecommendations", false)</div>
+            <div class="recommendations recommendations-right">@RenderSection("RightMarginRecommendations", false)</div>
+            <div class="recommendations recommendations-bottom">@RenderSection("BottomRecommendations", false)</div>
+
         </div>
 
         @{ Html.RenderAction("Index", "Footer"); }

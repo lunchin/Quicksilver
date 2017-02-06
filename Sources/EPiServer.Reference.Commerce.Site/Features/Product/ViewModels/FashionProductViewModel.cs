@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using EPiServer.Core;
 using EPiServer.Reference.Commerce.Site.Features.Product.Models;
 using Mediachase.Commerce;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace EPiServer.Reference.Commerce.Site.Features.Product.ViewModels
 {
@@ -17,5 +18,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.ViewModels
         public string Size { get; set; }
         public IList<string> Images { get; set; }
         public bool IsAvailable { get; set; }
+        public IEnumerable<ContentReference> AlternativeProducts { get; set; }
+        public IEnumerable<ContentReference> CrossSellProducts { get; set; }
     }
 }

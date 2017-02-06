@@ -1,8 +1,8 @@
 :: Setup EPiServer CMS and Commerce databases
 @echo off
 
-set cms_db=Quicksilver.Cms
-set commerce_db=Quicksilver.Commerce
+set cms_db=Quicksilver.Cms.Perform
+set commerce_db=Quicksilver.Commerce.Perform
 set user=Quicksilver
 set password=Episerver15
 

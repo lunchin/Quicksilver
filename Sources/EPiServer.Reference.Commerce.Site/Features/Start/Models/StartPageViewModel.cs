@@ -1,4 +1,5 @@
-﻿using EPiServer.Reference.Commerce.Site.Features.Start.Pages;
+﻿using EPiServer.Core;
+using EPiServer.Reference.Commerce.Site.Features.Start.Pages;
 using System.Collections.Generic;
 
 namespace EPiServer.Reference.Commerce.Site.Features.Start.Models
@@ -6,7 +7,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Start.Models
     public class StartPageViewModel
     {
         public StartPage StartPage { get; set; }
-
+        public IEnumerable<ContentReference> Recommendations { get; set; }
         public IEnumerable<PromotionViewModel> Promotions { get; set; }
     }
 }
