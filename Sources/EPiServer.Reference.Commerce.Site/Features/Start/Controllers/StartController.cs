@@ -1,17 +1,17 @@
 ﻿using EPiServer.Commerce.Catalog.ContentTypes;
 using EPiServer.Commerce.Marketing;
 using EPiServer.Core;
+using EPiServer.Recommendations.Commerce.Tracking;
+using EPiServer.Recommendations.Tracking;
 using EPiServer.Reference.Commerce.Site.Features.Market.Services;
-using EPiServer.Reference.Commerce.Site.Features.Recommendations.Services;
+using EPiServer.Reference.Commerce.Site.Features.Recommendations.Extensions;
 using EPiServer.Reference.Commerce.Site.Features.Start.Models;
 using EPiServer.Reference.Commerce.Site.Features.Start.Pages;
 using EPiServer.Web.Mvc;
 using Mediachase.Commerce;
-using Mediachase.Commerce.Catalog;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using EPiServer.Reference.Commerce.Site.Features.Recommendations.Extensions;
 
 namespace EPiServer.Reference.Commerce.Site.Features.Start.Controllers
 {
@@ -19,37 +19,26 @@ namespace EPiServer.Reference.Commerce.Site.Features.Start.Controllers
     {
         private readonly IContentLoader _contentLoader;
         private readonly ICurrentMarket _currentMarket;
-        private readonly IRecommendationService _recommendationService;
-        private readonly ReferenceConverter _referenceConverter;
         private readonly MarketContentLoader _marketContentFilter;
 
         public StartController(
             IContentLoader contentLoader,
             ICurrentMarket currentMarket,
-            MarketContentLoader marketContentFilter,
-            IRecommendationService recommendationService,
-            ReferenceConverter referenceConverter)
+            MarketContentLoader marketContentFilter)
         {
             _contentLoader = contentLoader;
             _currentMarket = currentMarket;
             _marketContentFilter = marketContentFilter;
-            _recommendationService = recommendationService;
-            _referenceConverter = referenceConverter;
         }
 
+        [Tracking(TrackingType.Home)]
         public ViewResult Index(StartPage currentPage)
         {
-            IEnumerable<ContentReference> recommendations = new List<ContentReference>();
-            if (HttpContext.Request.HttpMethod == "GET")
-            {
-                var response = _recommendationService.SendHomePageTracking(HttpContext);
-                recommendations = response.GetHomeRecommendations(_referenceConverter);
-            }
             var model = new StartPageViewModel()
             {
                 StartPage = currentPage,
                 Promotions = GetActivePromotions(),
-                Recommendations = recommendations
+                Recommendations = this.GetHomeRecommendations()
             };
 
             return View(model);
