@@ -43,7 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=3.0.30930.28736, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\AjaxControlToolkit.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Antlr3.Runtime">
@@ -78,28 +78,28 @@
       <HintPath>..\..\packages\EPiServer.Framework.10.3.2\lib\net45\EPiServer.ApplicationModules.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Business.Commerce, Version=10.3.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\EPiServer.Business.Commerce.dll</HintPath>
+    <Reference Include="EPiServer.Business.Commerce, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\EPiServer.Business.Commerce.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Cms.Shell.UI, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EPiServer.CMS.UI.Core.10.4.0\lib\net45\EPiServer.Cms.Shell.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Commerce.Internal.Migration, Version=10.3.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\EPiServer.Commerce.Internal.Migration.dll</HintPath>
+    <Reference Include="EPiServer.Commerce.Internal.Migration, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\EPiServer.Commerce.Internal.Migration.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Commerce.Shell, Version=10.3.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.UI.10.3.1-developerbuild\lib\net45\EPiServer.Commerce.Shell.dll</HintPath>
+    <Reference Include="EPiServer.Commerce.Shell, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.UI.10.4.0-pre-002255\lib\net45\EPiServer.Commerce.Shell.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Commerce.Shell.ManagerIntegration, Version=10.3.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.UI.ManagerIntegration.10.3.1-developerbuild\lib\net45\EPiServer.Commerce.Shell.ManagerIntegration.dll</HintPath>
+    <Reference Include="EPiServer.Commerce.Shell.ManagerIntegration, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.UI.ManagerIntegration.10.4.0-pre-002255\lib\net45\EPiServer.Commerce.Shell.ManagerIntegration.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Commerce.UI, Version=10.3.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.UI.10.3.1-developerbuild\lib\net45\EPiServer.Commerce.UI.dll</HintPath>
+    <Reference Include="EPiServer.Commerce.UI, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.UI.10.4.0-pre-002255\lib\net45\EPiServer.Commerce.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Configuration, Version=10.3.2.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
@@ -154,12 +154,12 @@
       <HintPath>..\..\packages\EPiServer.Packaging.UI.3.3.0\lib\net45\EPiServer.Packaging.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Recommendations, Version=1.0.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Recommendations.1.0.4-developerbuild\lib\net45\EPiServer.Recommendations.dll</HintPath>
+    <Reference Include="EPiServer.Recommendations, Version=1.0.5.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Recommendations.1.0.5-pre-002255\lib\net45\EPiServer.Recommendations.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Recommendations.Commerce, Version=10.3.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Recommendations.Commerce.10.3.1-developerbuild\lib\net45\EPiServer.Recommendations.Commerce.dll</HintPath>
+    <Reference Include="EPiServer.Recommendations.Commerce, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Recommendations.Commerce.10.4.0-pre-002255\lib\net45\EPiServer.Recommendations.Commerce.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Shell, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
@@ -194,68 +194,68 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
     </Reference>
-    <Reference Include="Mediachase.BusinessFoundation, Version=10.3.1.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.BusinessFoundation.dll</HintPath>
+    <Reference Include="Mediachase.BusinessFoundation, Version=10.4.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.BusinessFoundation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.BusinessFoundation.Data, Version=10.3.1.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.BusinessFoundation.Data.dll</HintPath>
+    <Reference Include="Mediachase.BusinessFoundation.Data, Version=10.4.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.BusinessFoundation.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.Commerce, Version=10.3.1.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.Commerce.dll</HintPath>
+    <Reference Include="Mediachase.Commerce, Version=10.4.0.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.Commerce.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.Commerce.Marketing.Validators, Version=10.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.Commerce.Marketing.Validators.dll</HintPath>
+    <Reference Include="Mediachase.Commerce.Marketing.Validators, Version=10.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.Commerce.Marketing.Validators.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.Commerce.Plugins.Payment, Version=10.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.Commerce.Plugins.Payment.dll</HintPath>
+    <Reference Include="Mediachase.Commerce.Plugins.Payment, Version=10.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.Commerce.Plugins.Payment.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.Commerce.Plugins.Shipping, Version=10.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.Commerce.Plugins.Shipping.dll</HintPath>
+    <Reference Include="Mediachase.Commerce.Plugins.Shipping, Version=10.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.Commerce.Plugins.Shipping.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.Commerce.Website, Version=10.3.1.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.Commerce.Website.dll</HintPath>
+    <Reference Include="Mediachase.Commerce.Website, Version=10.4.0.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.Commerce.Website.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.Commerce.Workflow, Version=10.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.Commerce.Workflow.dll</HintPath>
+    <Reference Include="Mediachase.Commerce.Workflow, Version=10.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.Commerce.Workflow.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.DataProvider, Version=10.3.1.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.DataProvider.dll</HintPath>
+    <Reference Include="Mediachase.DataProvider, Version=10.4.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.DataProvider.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.FileUploader, Version=10.3.1.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.FileUploader.dll</HintPath>
+    <Reference Include="Mediachase.FileUploader, Version=10.4.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.FileUploader.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.MetaDataPlus, Version=10.3.1.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.MetaDataPlus.dll</HintPath>
+    <Reference Include="Mediachase.MetaDataPlus, Version=10.4.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.MetaDataPlus.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.Search, Version=10.3.1.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.Search.dll</HintPath>
+    <Reference Include="Mediachase.Search, Version=10.4.0.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.Search.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.Search.Extensions, Version=10.3.1.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.Search.Extensions.dll</HintPath>
+    <Reference Include="Mediachase.Search.Extensions, Version=10.4.0.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.Search.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.Search.LuceneSearchProvider, Version=10.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.Search.LuceneSearchProvider.dll</HintPath>
+    <Reference Include="Mediachase.Search.LuceneSearchProvider, Version=10.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.Search.LuceneSearchProvider.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.SqlDataProvider, Version=10.3.1.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.SqlDataProvider.dll</HintPath>
+    <Reference Include="Mediachase.SqlDataProvider, Version=10.4.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.SqlDataProvider.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Mediachase.WebConsoleLib, Version=10.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\Mediachase.WebConsoleLib.dll</HintPath>
+    <Reference Include="Mediachase.WebConsoleLib, Version=10.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\Mediachase.WebConsoleLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
@@ -336,7 +336,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="nsoftware.IBizPay, Version=4.1.3575.0, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.3.1-developerbuild\lib\net45\nsoftware.IBizPay.dll</HintPath>
+      <HintPath>..\..\packages\EPiServer.Commerce.Core.10.4.0-pre-002255\lib\net45\nsoftware.IBizPay.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NuGet.Core">
@@ -879,12 +879,12 @@
     <Content Include="modules\_protected\Shell\Shell.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
     <Content Include="modules\_protected\CMS\CMS.zip" />
-    <Content Include="modules\_protected\EPiServer.Commerce.Shell\EPiServer.Commerce.Shell.zip" />
-    <Content Include="modules\_protected\Commerce\Commerce.zip" />
-    <Content Include="modules\_protected\EPiServer.Commerce.Shell.ManagerIntegration\EPiServer.Commerce.Shell.ManagerIntegration.zip" />
     <Content Include="App_Data\GeoLiteCity.dat" />
     <Content Include="Views\Recommendations\_Recommendations.cshtml" />
     <Content Include="Styles\Recommendations\recommendations.less" />
+    <Content Include="modules\_protected\EPiServer.Commerce.Shell\EPiServer.Commerce.Shell.zip" />
+    <Content Include="modules\_protected\Commerce\Commerce.zip" />
+    <Content Include="modules\_protected\EPiServer.Commerce.Shell.ManagerIntegration\EPiServer.Commerce.Shell.ManagerIntegration.zip" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
