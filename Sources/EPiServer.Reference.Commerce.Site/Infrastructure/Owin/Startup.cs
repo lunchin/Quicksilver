@@ -14,6 +14,7 @@ using Microsoft.Owin.Security.MicrosoftAccount;
 using Microsoft.Owin.Security.Twitter;
 using Owin;
 using System;
+using EPiServer.ServiceApi.Owin;
 
 [assembly: OwinStartup(typeof(EPiServer.Reference.Commerce.Site.Infrastructure.Owin.Startup))]
 namespace EPiServer.Reference.Commerce.Site.Infrastructure.Owin
@@ -70,6 +71,7 @@ namespace EPiServer.Reference.Commerce.Site.Infrastructure.Owin
             // Once you check this option, your second step of verification during the login process will be remembered on the device where you logged in from.
             // This is similar to the RememberMe option when you log in.
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
+            app.UseServiceApiIdentityTokenAuthorization<ApplicationUserManager<SiteUser>, SiteUser>();
 
 #if GOOGLE_ACCOUNT_LOGIN_FEATURE
 #if (FACEBOOK_ACCOUNT_LOGIN_FEATURE || TWITTER_ACCOUNT_LOGIN_FEATURE || MICROSOFT_ACCOUNT_LOGIN_FEATURE)
